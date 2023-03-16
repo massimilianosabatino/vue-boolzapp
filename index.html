@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boolzapp</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;600&display=swap" rel="stylesheet">
+    <!-- /Google Fonts -->
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- /Font Awesome -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="app" class="d-flex no-wrap">
+        <!-- Left panel -->
+        <section id="left-panel" class="d-flex direction-column no-wrap">
+            <header class="d-flex no-wrap">
+                <div class="profile-pic">
+                    <img src="img/avatar_io.jpg" alt="Foto di Massimiliano">
+                </div>
+                <div class="user f-grow">Massimiliano</div>
+                <div class="profile-icons">
+                    <i class="fa-solid fa-circle-notch"></i>
+                    <i class="fa-solid fa-message"></i>
+                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                </div>
+            </header>
+            <div id="utilities">
+                <div id="notifications" class="d-flex f-items-center">
+                    <div class="profile-pic d-flex">
+                        <i class="fa-solid fa-bell-slash"></i>
+                    </div>
+                    <div class="details">
+                        <div>Ricevi notifiche di nuovi messaggi</div>
+                        <div><a href="#">Attiva notifiche desktop</a></div>
+                    </div>
+                </div>
+                <div id="search">
+                    <div  class="d-flex f-items-center">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" placeholder="Cerca o inizia una nuova chat">
+                    </div>
+                </div>
+            </div>
+            <main id="chat-list">
+                <ul>
+                    <li class="d-flex">
+                        <div class="profile-pic">
+                            <img src="img/avatar_io.jpg" alt="Foto di Massimiliano">
+                        </div>
+                        <div class="details f-grow">
+                            <div>Mario</div>
+                            <div>Ultimo messaggio</div>
+                        </div>
+                        <div class="details">12:00</div>
+                    </li>
+                    <li class="d-flex">
+                        <div class="profile-pic">
+                            <img src="img/avatar_io.jpg" alt="Foto di Massimiliano">
+                        </div>
+                        <div class="details f-grow">
+                            <div>Michele</div>
+                            <div>Ultimo messaggio</div>
+                        </div>
+                        <div class="details">12:00</div>
+                    </li>
+                </ul>
+            </main>
+        </section>
+        <!-- /Left panel -->
+        <!-- Right panel -->
+        <section id="righ-panel">
+            <header>Michele</header>
+        </section>
+        <!-- /Right panel -->
+    </div>
+</body>
+</html>

@@ -1,0 +1,163 @@
+/*
+*   RESET
+*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*
+*   COMMONS
+*/
+body {
+    height: 100vh;
+    background: linear-gradient(to bottom, #009688 5rem, #D9DBD4 5rem);
+}
+
+header {
+    background-color: #EAEAEA;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.f-items-center {
+    align-items: center;
+}
+
+.f-justify-center {
+    justify-content: center;
+}
+
+.direction-column {
+    flex-direction: column;
+}
+
+.no-wrap {
+    flex-wrap: nowrap;
+}
+
+.f-grow {
+    flex-grow: 1;
+}
+
+
+/*
+*   TYPO
+*/
+body{
+    font-family: 'Kantumruy Pro', sans-serif;
+    font-size: .9375rem;
+    color: #313131;
+}
+
+/*
+*   APP CONTAINER
+*/
+#app {
+    margin: 0 auto;
+    padding: 1.5rem;
+    height: 100%;
+}
+
+/*
+*   LEFT PANEL
+*/
+#left-panel {
+    width: clamp(18.75rem, 33.5625rem, 33.75rem);
+    border-right: 1px solid #D6D6D6;
+}
+
+/* Header */
+#left-panel > header {
+    height: 4.375rem;
+    align-items: center;
+    padding: .625rem 1.5625rem .625rem .625rem;
+}
+
+.profile-pic {
+    width: 3.125rem;
+
+}
+
+.profile-pic > img {
+    display: block;
+    width: 100%;
+    border-radius: 50%;
+}
+
+.user {
+    margin-left: .625rem;
+}
+
+.profile-icons i {
+    color: #B1B1B1;
+    margin-left: 1.25rem;
+}
+
+/* Notifications */
+#notifications {
+    padding: .9375rem 1.25rem;
+    background-color: #8EDAFC;
+}
+
+#notifications .profile-pic {
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    width: 3.125rem;
+    height: 3.125rem;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 1.5625rem;
+}
+
+#notifications i {
+    color: #8EDAFC;
+}
+
+/* Search */
+#search {
+    background-color: #FAFAFA;
+    padding: .5rem;
+    overflow: scroll;
+}
+
+#search > div {
+    background-color: #fff;
+    border: 1px solid #E9EBEB;
+    border-radius: 4px;
+    height: 2.1875rem;
+}
+
+#search i {
+    padding: 0 1.5625rem;
+    color: #D6D6D6;
+}
+
+#search input {
+    width: 100%;
+    padding: .5rem;
+    border: none;
+    border-left: 1px solid #E9EBEB;
+}
+
+/* Chat list */
+#chat-list {
+    flex-grow: 1;
+    background-color: #fff;
+}
+
+#chat-list > ul > li {
+    padding: .9375rem 1.25rem;
+}
+
+#chat-list > ul > li:not(:last-child) {
+    border-bottom: 1px solid #D6D6D6;
+}
+
+.details {
+    margin-left: 1.25rem;
+}
