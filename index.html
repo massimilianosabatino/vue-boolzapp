@@ -19,18 +19,21 @@
     <div id="app" class="d-flex no-wrap">
         <!-- Left panel -->
         <section id="left-panel" class="d-flex direction-column no-wrap">
+            <!-- Top user bar  -->
             <header class="d-flex no-wrap">
                 <div class="profile-pic">
                     <img src="img/avatar_io.jpg" alt="Foto di Massimiliano">
                 </div>
-                <div class="user f-grow">Massimiliano</div>
+                <div class="name f-grow">Massimiliano</div>
                 <div class="profile-icons">
                     <i class="fa-solid fa-circle-notch"></i>
                     <i class="fa-solid fa-message"></i>
                     <i class="fa-solid fa-ellipsis-vertical"></i>
                 </div>
             </header>
+            <!-- /Top user bar  -->
             <div id="utilities">
+                <!-- Notification -->
                 <div id="notifications" class="d-flex f-items-center">
                     <div class="profile-pic d-flex">
                         <i class="fa-solid fa-bell-slash"></i>
@@ -40,13 +43,17 @@
                         <div><a href="#">Attiva notifiche desktop</a></div>
                     </div>
                 </div>
+                <!-- /Notification -->
+                <!-- Search field -->
                 <div id="search">
                     <div  class="d-flex f-items-center">
                         <i class="fa-solid fa-magnifying-glass"></i>
                         <input type="text" placeholder="Cerca o inizia una nuova chat">
                     </div>
                 </div>
+                <!-- /Search field -->
             </div>
+            <!-- Chat list -->
             <main id="chat-list">
                 <ul>
                     <li class="d-flex">
@@ -55,9 +62,9 @@
                         </div>
                         <div class="details f-grow">
                             <div>Mario</div>
-                            <div>Ultimo messaggio</div>
+                            <div class="sub">Ultimo messaggio</div>
                         </div>
-                        <div class="details">12:00</div>
+                        <div class="details sub">12:00</div>
                     </li>
                     <li class="d-flex">
                         <div class="profile-pic">
@@ -65,17 +72,51 @@
                         </div>
                         <div class="details f-grow">
                             <div>Michele</div>
-                            <div>Ultimo messaggio</div>
+                            <div class="sub">Ultimo messaggio</div>
                         </div>
-                        <div class="details">12:00</div>
+                        <div class="details sub">12:00</div>
                     </li>
                 </ul>
             </main>
+            <!-- /Chat list -->
         </section>
         <!-- /Left panel -->
         <!-- Right panel -->
-        <section id="righ-panel">
-            <header>Michele</header>
+        <section id="right-panel" class="d-flex direction-column f-grow">
+            <!-- Top conversation bar -->
+            <header class="d-flex no-wrap">
+                <div class="profile-pic">
+                    <img src="img/avatar_io.jpg" alt="Foto di Massimiliano">
+                </div>
+                <div class="name f-grow">
+                    <div>Michele</div>
+                    <div class="sub">Ultimo accesso oggi alle 12:00</div>
+                </div>
+
+                <div class="profile-icons">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <i class="fa-solid fa-paperclip"></i>
+                </div>
+            </header>
+            <!-- /Top conversation bar -->
+            <!-- Conversation active -->
+            <main class="f-grow">
+
+            </main>
+            <!-- /Conversation active -->
+            <!-- Message bottom bar -->
+            <footer class="d-flex no-wrap f-items-center">
+                <div class="emonji">
+                    <i class="fa-regular fa-face-smile"></i>
+                </div>
+                <div class="f-grow">
+                    <input type="text" placeholder="Scrivi un messaggio">
+                </div>
+                <div class="send-utils">
+                    <i class="fa-solid fa-microphone"></i>
+                </div>
+            </footer>
+            <!-- /Message bottom bar -->
         </section>
         <!-- /Right panel -->
     </div>

@@ -17,6 +17,9 @@ body {
 
 header {
     background-color: #EAEAEA;
+    height: 4.375rem;
+    align-items: center;
+    padding: .625rem 1.5625rem .625rem .625rem;
 }
 
 .d-flex {
@@ -43,6 +46,9 @@ header {
     flex-grow: 1;
 }
 
+.name {
+    margin-left: .625rem;
+}
 
 /*
 *   TYPO
@@ -51,6 +57,13 @@ body{
     font-family: 'Kantumruy Pro', sans-serif;
     font-size: .9375rem;
     color: #313131;
+    font-weight: 400;
+}
+
+.sub {
+    font-weight: 300;
+    font-size: .8125rem;
+    color: #B1B1B1;
 }
 
 /*
@@ -72,9 +85,7 @@ body{
 
 /* Header */
 #left-panel > header {
-    height: 4.375rem;
-    align-items: center;
-    padding: .625rem 1.5625rem .625rem .625rem;
+
 }
 
 .profile-pic {
@@ -86,10 +97,6 @@ body{
     display: block;
     width: 100%;
     border-radius: 50%;
-}
-
-.user {
-    margin-left: .625rem;
 }
 
 .profile-icons i {
@@ -160,4 +167,33 @@ body{
 
 .details {
     margin-left: 1.25rem;
+}
+
+/*
+*   RIGHT PANEL
+*/
+/* Header */
+
+/* Main */
+#right-panel main {
+    background-image: url(../img/mine.jpg);
+}
+
+/* Footer */
+footer {
+    height: 4.375rem;
+    background-color: #F3EEEA;
+}
+
+.emonji, .send-utils {
+    padding: 0 2.375rem;
+    color: #6B7376;
+}
+
+footer input {
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    height: 3.125rem;
+    padding: 0 .9375rem;
 }
