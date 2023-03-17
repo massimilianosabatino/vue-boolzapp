@@ -111,6 +111,11 @@ body{
 .profile-icons i {
     color: #B1B1B1;
     margin-left: 1.25rem;
+    cursor: pointer;
+}
+
+.profile-icons i:hover, .profile-icons i:active {
+    color: #c7c7c7;
 }
 
 /* Notifications */
@@ -190,6 +195,7 @@ body{
 /* Header */
 
 /* Main */
+
 #right-panel main {
     background-image: url(../img/mine.jpg);
 }
@@ -225,6 +231,11 @@ footer {
 .emonji, .send-utils {
     padding: 0 2.375rem;
     color: #6B7376;
+    cursor: pointer;
+}
+
+.emonji:hover, .emonji:active, .send-utils:hover, .send-utils:active {
+    color: #c7c7c7;
 }
 
 footer input {
