@@ -170,6 +170,7 @@ createApp({
                 }
             ],
             currentActive: 0,
+            newMessageSend: '',
 
         }
     },
@@ -177,6 +178,13 @@ createApp({
         activeChat(element){
             this.currentActive = element;
             return element;
+        },
+        sendMessage(element){
+            const today = new Date();
+            const date = today.getDate() + '/' + (today.getMonth() + 1).toString().padStart(2,'0') + '/' + today.getFullYear();
+            const time = today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds();
+            const formattedDate = `${date} ${time}`;
+            this.contacts[this.currentActive].messages.push({date: formattedDate, message : this.newMessageSend, status: 'sent'});  
         }
     }
 }).mount('#app')
