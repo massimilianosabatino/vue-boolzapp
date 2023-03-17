@@ -227,7 +227,7 @@ body{
 .option-message {
     position: absolute;
     background-color: #fff;
-    padding: 1rem;
+
     z-index: 1;
     top: 50%;
     right: 20px;
@@ -235,8 +235,14 @@ body{
     box-shadow: 0 2px 5px rgba(49, 49, 49, 0.3);
 }
 
-.option-message > div:first-child {
-    padding-bottom: .9375rem;
+.option-message > div {
+    padding: 1rem;
+}
+
+.option-message > div:hover {
+    background-color: #E9EBEB;
+    cursor: pointer;
+    border-radius: .3125rem;
 }
 
 /* Footer */

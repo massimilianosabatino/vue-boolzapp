@@ -94,16 +94,21 @@
             <!-- Conversation active -->
             <main class="f-grow" @click.self="closeModal">
                 <template v-for="(messageStore, index) in contacts[currentActive].messages">
-                    <div class="bubble sent" v-if="messageStore.status === 'sent'">
+                    <div class="bubble sent" v-if="messageStore.status === 'sent'" @mousedown="longPress(index)" @mouseup="abortLongPress">
                         <div class="message">{{ messageStore.message }}</div>
                         <div class="time sub">12:00</div>
-                    </div>
-                    <div class="bubble received" v-if="messageStore.status === 'received'" @mousedown="longPress" @mouseup="abortLongPress">
-                        <div class="message">{{ messageStore.message }}</div>
-                        <div class="time sub">12:00</div>
-                        <div class="option-message" v-if="longPressed">
+                        
+                        <div class="option-message" v-if="longPressed && index === currentMessage">
                             <div>Message info</div>
-                            <div>Delete message</div>
+                            <div @click="deleteMessage">Delete message</div>
+                        </div>
+                    </div>
+                    <div class="bubble received" v-if="messageStore.status === 'received'" @mousedown="longPress(index)" @mouseup="abortLongPress">
+                        <div class="message">{{ messageStore.message }}</div>
+                        <div class="time sub">12:00</div>
+                        <div class="option-message d-flex direction-column f-justify-center" v-if="longPressed && index === currentMessage">
+                            <div>Message info</div>
+                            <div @click="deleteMessage">Delete message</div>
                         </div>
                     </div>
                 </template>

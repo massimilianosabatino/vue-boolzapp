@@ -175,6 +175,7 @@ createApp({
             filteredContacts: [],
             longPressed: false,
             pressHandle: 0,
+            currentMessage: 0, 
         }
     },
     methods: {
@@ -210,16 +211,25 @@ createApp({
                 return this.contacts;
             }
         },
-        longPress(){
+        longPress(element){
             const delay = 2;
             this.pressHandle = setTimeout(() => this.longPressed = true, delay * 1000);
+            console.log(this.pressHandle)
+            this.currentMessage = element;
+            console.log(this.currentMessage)
+
         },
         abortLongPress(){
             clearTimeout(this.pressHandle);
         },
         closeModal(){
             this.longPressed = false;
-            console.log('press')
+            console.log('sono qui')
+        },
+        deleteMessage(messageSelected){
+            console.log(this.contacts[this.currentActive].messages[this.currentMessage])
+            this.contacts[this.currentActive].messages.splice(this.currentMessage, 1);
+            this.longPressed = false;
         }
     }
 }).mount('#app')
