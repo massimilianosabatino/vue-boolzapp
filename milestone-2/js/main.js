@@ -180,11 +180,23 @@ createApp({
             return element;
         },
         sendMessage(element){
+            //Get and format date and time
             const today = new Date();
             const date = today.getDate() + '/' + (today.getMonth() + 1).toString().padStart(2,'0') + '/' + today.getFullYear();
             const time = today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds();
             const formattedDate = `${date} ${time}`;
-            this.contacts[this.currentActive].messages.push({date: formattedDate, message : this.newMessageSend, status: 'sent'});  
+            
+            //Add message to archive of current contact
+            this.contacts[this.currentActive].messages.push({date: formattedDate, message : this.newMessageSend, status: 'sent'});
+            //Clear field
+            this.newMessageSend = '';
+
+            //Set a timeout for a fake reply
+            const delay = 1;
+            setTimeout(this.fakeReply, delay * 1000);
+        },
+        fakeReply(formattedDate){
+            this.contacts[this.currentActive].messages.push({date: formattedDate, message : 'ok', status: 'received'});  
         }
     }
 }).mount('#app')
