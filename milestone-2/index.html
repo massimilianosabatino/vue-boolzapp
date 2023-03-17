@@ -57,11 +57,11 @@
             <main id="chat-list">
                 <ul>
                     <template v-for="(contact, index) in searchContact()">
-                        <li class="d-flex" @click="activeChat(index)">
+                        <li class="d-flex" @click="activeChat(index)" :chat-id="contact.name">
                             <div class="profile-pic">
                                 <img :src="contact.avatar" :alt="`Foto di ${contact.name}`">
                             </div>
-                            <div class="details f-grow" :key="index" :chat-id="index">
+                            <div class="details f-grow" :key="index">
                                 <div>{{ contact.name }}</div>
                                 <div class="sub">Ultimo messaggio</div>
                             </div>

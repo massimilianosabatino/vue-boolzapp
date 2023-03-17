@@ -180,8 +180,15 @@ createApp({
     },
     methods: {
         activeChat(element){
-            this.currentActive = element;
-            return element;
+            if (this.searchField === '') {
+                this.currentActive = element;
+                return element;   
+            }else {
+                const id = event.currentTarget.getAttribute('chat-id');
+                const test = this.contacts.map(e => e.name).indexOf(id)
+                this.currentActive = test;
+                return element
+            }
         },
         sendMessage(element){
             //Get and format date and time
@@ -204,7 +211,7 @@ createApp({
             const emojiThumbsUp = String.fromCodePoint(0x1F44D)
             this.contacts[this.currentActive].messages.push({date: formattedDate, message : emojiThumbsUp, status: 'received'});  
         },
-        searchContact(){
+        searchContact(event){
             if (this.searchField !== '') {
                 return this.contacts.filter(el => el.name.toLowerCase().includes(this.searchField.toLowerCase()));
             } else {
@@ -214,17 +221,13 @@ createApp({
         longPress(element){
             const delay = 2;
             this.pressHandle = setTimeout(() => this.longPressed = true, delay * 1000);
-            console.log(this.pressHandle)
             this.currentMessage = element;
-            console.log(this.currentMessage)
-
         },
         abortLongPress(){
             clearTimeout(this.pressHandle);
         },
         closeModal(){
             this.longPressed = false;
-            console.log('sono qui')
         },
         deleteMessage(messageSelected){
             console.log(this.contacts[this.currentActive].messages[this.currentMessage])
