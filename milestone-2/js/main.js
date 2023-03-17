@@ -196,7 +196,9 @@ createApp({
             setTimeout(this.fakeReply, delay * 1000);
         },
         fakeReply(formattedDate){
-            this.contacts[this.currentActive].messages.push({date: formattedDate, message : 'ok', status: 'received'});  
+            //Convert emonji to string from HEX
+            const emojiThumbsUp = String.fromCodePoint(0x1F44D)
+            this.contacts[this.currentActive].messages.push({date: formattedDate, message : emojiThumbsUp, status: 'received'});  
         }
     }
 }).mount('#app')
