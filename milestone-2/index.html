@@ -98,10 +98,10 @@
                         <div class="message">{{ messageStore.message }}</div>
                         <div class="time sub">12:00</div>
                     </div>
-                    <div class="bubble received" v-if="messageStore.status === 'received'">
+                    <div class="bubble received" v-if="messageStore.status === 'received'" @mousedown="longPress" @mouseup="abortLongPress">
                         <div class="message">{{ messageStore.message }}</div>
                         <div class="time sub">12:00</div>
-                        <div class="option-message">
+                        <div class="option-message" v-if="longPressed">
                             <div>Message info</div>
                             <div>Delete message</div>
                         </div>

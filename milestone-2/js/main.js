@@ -173,6 +173,8 @@ createApp({
             newMessageSend: '',
             searchField: '',
             filteredContacts: [],
+            longPressed: false,
+            pressHandle: 0,
         }
     },
     methods: {
@@ -205,10 +207,19 @@ createApp({
             if (this.searchField !== '') {
                 return this.contacts.filter(el => el.name.toLowerCase().includes(this.searchField.toLowerCase()));
             } else {
-                console.log('sono else', this.contacts)
                 return this.contacts;
             }
+        },
+        longPress(){
+            const delay = 2;
+            this.pressHandle = setTimeout(() => this.longPressed = true, delay * 1000);
+        },
+        abortLongPress(){
+            clearTimeout(this.pressHandle);
+        },
+        closeModal(){
+            this.longPressed = false;
+            console.log('press')
         }
     }
 }).mount('#app')
-

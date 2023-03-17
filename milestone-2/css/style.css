@@ -202,6 +202,7 @@ body{
 }
 
 .bubble {
+    position: relative;
     font-size: .875rem;
     padding: .8125rem 1rem .3125rem 1rem;
     width: 19.5625rem;
@@ -221,6 +222,21 @@ body{
 .time {
     text-align: right;
     font-size: .625rem;
+}
+
+.option-message {
+    position: absolute;
+    background-color: #fff;
+    padding: 1rem;
+    z-index: 1;
+    top: 50%;
+    right: 20px;
+    border-radius: .3125rem;
+    box-shadow: 0 2px 5px rgba(49, 49, 49, 0.3);
+}
+
+.option-message > div:first-child {
+    padding-bottom: .9375rem;
 }
 
 /* Footer */
