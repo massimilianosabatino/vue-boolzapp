@@ -168,7 +168,7 @@ body{
 #chat-list {
     flex-grow: 1;
     background-color: #fff;
-    overflow: scroll;
+    overflow-y: scroll;
 }
 
 #chat-list > ul > li {
@@ -198,6 +198,7 @@ body{
 
 #right-panel main {
     background-image: url(../img/mine.jpg);
+    overflow-y: scroll;
 }
 
 .bubble {
