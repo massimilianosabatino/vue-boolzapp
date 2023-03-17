@@ -56,26 +56,18 @@
             <!-- Chat list -->
             <main id="chat-list">
                 <ul>
-                    <li class="d-flex">
-                        <div class="profile-pic">
-                            <img src="img/avatar_io.jpg" alt="Foto di Massimiliano">
-                        </div>
-                        <div class="details f-grow">
-                            <div>Mario</div>
-                            <div class="sub">Ultimo messaggio</div>
-                        </div>
-                        <div class="details sub">12:00</div>
-                    </li>
-                    <li class="d-flex">
-                        <div class="profile-pic">
-                            <img src="img/avatar_io.jpg" alt="Foto di Massimiliano">
-                        </div>
-                        <div class="details f-grow">
-                            <div>Michele</div>
-                            <div class="sub">Ultimo messaggio</div>
-                        </div>
-                        <div class="details sub">12:00</div>
-                    </li>
+                    <template v-for="(contact, index) in contacts">
+                        <li class="d-flex" @click="activeChat(index)">
+                            <div class="profile-pic">
+                                <img :src="contact.avatar" :alt="`Foto di ${contact.name}`">
+                            </div>
+                            <div class="details f-grow" :key="index" :chat-id="index">
+                                <div>{{ contact.name }}</div>
+                                <div class="sub">Ultimo messaggio</div>
+                            </div>
+                            <div class="details sub">12:00</div>
+                        </li>
+                    </template>
                 </ul>
             </main>
             <!-- /Chat list -->
@@ -89,7 +81,7 @@
                     <img src="img/avatar_io.jpg" alt="Foto di Massimiliano">
                 </div>
                 <div class="name f-grow">
-                    <div>Michele</div>
+                    <div>{{ contacts[0].name}}</div>
                     <div class="sub">Ultimo accesso oggi alle 12:00</div>
                 </div>
 
@@ -102,14 +94,16 @@
             <!-- /Top conversation bar -->
             <!-- Conversation active -->
             <main class="f-grow">
-                <div class="bubble sent">
-                    <div class="message">Sono solo un messaggio</div>
-                    <div class="time sub">12:00</div>
-                </div>
-                <div class="bubble received">
-                    <div class="message">Sono solo un messaggio</div>
-                    <div class="time sub">12:00</div>
-                </div>
+                <template v-for="(messageStore, index) in contacts[0].messages">
+                    <div class="bubble sent" v-if="messageStore.status === 'sent'">
+                        <div class="message">{{ messageStore.message }}</div>
+                        <div class="time sub">12:00</div>
+                    </div>
+                    <div class="bubble received" v-if="messageStore.status === 'received'">
+                        <div class="message">{{ messageStore.message }}</div>
+                        <div class="time sub">12:00</div>
+                    </div>
+                </template>
             </main>
             <!-- /Conversation active -->
             <!-- Message bottom bar -->
@@ -128,5 +122,9 @@
         </section>
         <!-- /Right panel -->
     </div>
+    <!-- Vue.js -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!-- /Vue.js -->
+    <script src="js/main.js"></script>
 </body>
 </html>
