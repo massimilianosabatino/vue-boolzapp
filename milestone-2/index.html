@@ -48,7 +48,7 @@
                 <div id="search">
                     <div  class="d-flex f-items-center">
                         <i class="fa-solid fa-magnifying-glass"></i>
-                        <input type="text" placeholder="Cerca o inizia una nuova chat">
+                        <input type="text" placeholder="Cerca o inizia una nuova chat" v-model="searchField" @keyup.enter="searchContact">
                     </div>
                 </div>
                 <!-- /Search field -->
@@ -56,7 +56,7 @@
             <!-- Chat list -->
             <main id="chat-list">
                 <ul>
-                    <template v-for="(contact, index) in contacts">
+                    <template v-for="(contact, index) in searchContact()">
                         <li class="d-flex" @click="activeChat(index)">
                             <div class="profile-pic">
                                 <img :src="contact.avatar" :alt="`Foto di ${contact.name}`">
@@ -84,7 +84,6 @@
                     <div>{{ contacts[currentActive].name}}</div>
                     <div class="sub">Ultimo accesso oggi alle 12:00</div>
                 </div>
-
                 <div class="profile-icons">
                     <i class="fa-solid fa-magnifying-glass"></i>
                     <i class="fa-solid fa-paperclip"></i>
@@ -102,6 +101,10 @@
                     <div class="bubble received" v-if="messageStore.status === 'received'">
                         <div class="message">{{ messageStore.message }}</div>
                         <div class="time sub">12:00</div>
+                        <div class="option-message">
+                            <div>Message info</div>
+                            <div>Delete message</div>
+                        </div>
                     </div>
                 </template>
             </main>

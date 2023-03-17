@@ -171,7 +171,8 @@ createApp({
             ],
             currentActive: 0,
             newMessageSend: '',
-
+            searchField: '',
+            filteredContacts: [],
         }
     },
     methods: {
@@ -199,6 +200,14 @@ createApp({
             //Convert emonji to string from HEX
             const emojiThumbsUp = String.fromCodePoint(0x1F44D)
             this.contacts[this.currentActive].messages.push({date: formattedDate, message : emojiThumbsUp, status: 'received'});  
+        },
+        searchContact(){
+            if (this.searchField !== '') {
+                return this.contacts.filter(el => el.name.toLowerCase().includes(this.searchField.toLowerCase()));
+            } else {
+                console.log('sono else', this.contacts)
+                return this.contacts;
+            }
         }
     }
 }).mount('#app')
