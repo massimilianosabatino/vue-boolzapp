@@ -92,7 +92,7 @@
             </header>
             <!-- /Top conversation bar -->
             <!-- Conversation active -->
-            <main class="f-grow">
+            <main class="f-grow" @click.self="closeModal">
                 <template v-for="(messageStore, index) in contacts[currentActive].messages">
                     <div class="bubble sent" v-if="messageStore.status === 'sent'">
                         <div class="message">{{ messageStore.message }}</div>
