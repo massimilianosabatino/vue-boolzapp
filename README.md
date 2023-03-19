@@ -11,9 +11,10 @@ Cliccando su una conversazione sulla sinistra, si visualizeranno tutti i messagg
 
 ## Added features
 - Ricerca conversazioni
+- Possibilità di cancellare un messaggio
 
 ## Planned features
-- Possibilità di cancellare un messaggio
+
 - Visualizzazione ora e ultimo messaggio ricevuto nella lista contatti
 - Inserimento emonji in campo di invio messaggio tramite pulsante dedicato
 - Possibilità di invio foto
