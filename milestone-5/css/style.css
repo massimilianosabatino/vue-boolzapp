@@ -199,6 +199,7 @@ body{
 #right-panel main {
     background-image: url(../img/mine.jpg);
     overflow-y: scroll;
+    position: relative;
 }
 
 .bubble {
@@ -224,11 +225,17 @@ body{
     font-size: .625rem;
 }
 
+.closer{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
 .option-message {
     position: absolute;
     background-color: #fff;
 
-    z-index: 1;
+    z-index: 2;
     top: 50%;
     right: 20px;
     border-radius: .3125rem;

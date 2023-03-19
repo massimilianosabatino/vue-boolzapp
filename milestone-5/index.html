@@ -92,7 +92,8 @@
             </header>
             <!-- /Top conversation bar -->
             <!-- Conversation active -->
-            <main class="f-grow" @click.self="closeModal">
+            <main class="f-grow">
+                <div class="closer" v-if="longPressed" @click="closeModal"></div>
                 <template v-for="(messageStore, index) in contacts[currentActive].messages">
                     <div class="bubble sent" v-if="messageStore.status === 'sent'" @mousedown="longPress(index)" @mouseup="abortLongPress">
                         <div class="message">{{ messageStore.message }}</div>
