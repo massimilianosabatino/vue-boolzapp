@@ -13,7 +13,7 @@
 */
 body {
     height: 100vh;
-    background: linear-gradient(to bottom, #009688 5rem, #D9DBD4 5rem);
+    background: linear-gradient(to bottom, #009688 9.375rem, #D9DBD4 9.375rem);
 }
 
 header {
@@ -225,16 +225,17 @@ body{
     font-size: .625rem;
 }
 
-.closer{
+/* Pop up */
+.switch{
     position: absolute;
     width: 100%;
     height: 100%;
     z-index: 1;
 }
+
 .option-message {
     position: absolute;
     background-color: #fff;
-
     z-index: 2;
     top: 50%;
     right: 20px;
