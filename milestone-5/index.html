@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,10 +12,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;600&display=swap" rel="stylesheet">
     <!-- /Google Fonts -->
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- /Font Awesome -->
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
     <div id="app" class="d-flex no-wrap">
         <!-- Left panel -->
@@ -46,9 +50,10 @@
                 <!-- /Notification -->
                 <!-- Search field -->
                 <div id="search">
-                    <div  class="d-flex f-items-center">
+                    <div class="d-flex f-items-center">
                         <i class="fa-solid fa-magnifying-glass"></i>
-                        <input type="text" placeholder="Cerca o inizia una nuova chat" v-model="searchField" @keyup.enter="searchContact">
+                        <input type="text" placeholder="Cerca o inizia una nuova chat" v-model="searchField"
+                            @keyup.enter="searchContact">
                     </div>
                 </div>
                 <!-- /Search field -->
@@ -82,11 +87,15 @@
                 </div>
                 <div class="name f-grow">
                     <div>{{ contacts[currentActive].name}}</div>
-                    <div class="sub">Ultimo accesso oggi alle {{ getDateFromObj(this.contacts[currentActive].messages.length - 1, currentActive) }}</div>
+                    <div class="sub">Ultimo accesso oggi alle {{
+                        getDateFromObj(this.contacts[currentActive].messages.length - 1, currentActive) }}</div>
                 </div>
                 <div class="profile-icons">
                     <i class="fa-solid fa-magnifying-glass"></i>
-                    <i class="fa-solid fa-paperclip"></i>
+                    <!-- <label for="actual-btn" @click="loadFile"> -->
+                        <i class="fa-solid fa-paperclip"></i>
+                    <!-- </label> -->
+                    <!-- <input type="file" id="actual-btn" @change="handleFileChange" v-on="upload" ref="file" hidden/> -->
                     <i class="fa-solid fa-ellipsis-vertical"></i>
                 </div>
             </header>
@@ -98,19 +107,27 @@
                 <!-- /Utility - close pop up -->
                 <template v-for="(messageStore, index) in contacts[currentActive].messages">
                     <!-- Message chat -->
-                    <div class="bubble d-flex" :class="[{ sent: messageStore.status === 'sent' }, { received : messageStore.status === 'received' }]" @mousedown="longPress(index)" @mouseup="abortLongPress" @mouseenter="isHover = true" @mouseleave="isHover = false">
+                    <div class="bubble d-flex"
+                        :class="[{ sent: messageStore.status === 'sent' }, { received : messageStore.status === 'received' }]"
+                        @mousedown="longPress(index)" @mouseup="abortLongPress" @mouseenter="isHover = true"
+                        @mouseleave="isHover = false">
                         <div class="message-container">
+                            <!-- <div class="chat-image" v-show="hasImage">
+                                <img src="{{ upload.path }}" alt="#">
+                            </div> -->
                             <div class="message">{{ messageStore.message }}</div>
                             <div class="time sub">{{ getDateFromObj(index, currentActive) }}</div>
                         </div>
-                        <div class="toggle-popup" :class="{show: isHover}" @click="functionPopup"><i class="fa-solid fa-chevron-down"></i></div>
+                        <div class="toggle-popup" :class="{show: isHover}" @click="functionPopup"><i
+                                class="fa-solid fa-chevron-down"></i></div>
                         <!-- Pop up on message -->
-                        <div class="option-message d-flex direction-column f-justify-center" v-if="longPressed && index === currentMessage">
+                        <div class="option-message d-flex direction-column f-justify-center"
+                            v-if="longPressed && index === currentMessage">
                             <div>Message info</div>
                             <div @click="deleteMessage">Delete message</div>
                         </div>
                         <!-- /Pop up on message -->
-                    <!-- /Message chat -->
+                        <!-- /Message chat -->
                     </div>
                 </template>
             </main>
@@ -121,12 +138,14 @@
                     <i class="fa-regular fa-face-smile"></i>
                 </div>
                 <div class="f-grow">
-                    <textarea placeholder="Scrivi un messaggio" v-model="newMessageSend" @keyup.enter="sendMessage"></textarea>
+                    <textarea placeholder="Scrivi un messaggio" v-model="newMessageSend"
+                        @keyup.enter="sendMessage"></textarea>
                 </div>
                 <div class="send-utils">
                     <i class="fa-solid fa-microphone"></i>
                 </div>
             </footer>
+
             <!-- /Message bottom bar -->
         </section>
         <!-- /Right panel -->
@@ -134,9 +153,13 @@
     <!-- Luxon CDN -->
     <script src=" https://cdn.jsdelivr.net/npm/luxon@3.3.0/build/global/luxon.min.js "></script>
     <!-- /Luxon CDN -->
+    <!-- Emonji picker -->
+    <script src="https://unpkg.com/vue-emoji-picker/dist/vue-emoji-picker.js"></script>
+    <!-- /Emonji picker -->
     <!-- Vue.js -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <!-- /Vue.js -->
     <script src="js/main.js"></script>
 </body>
+
 </html>

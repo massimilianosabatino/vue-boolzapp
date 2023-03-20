@@ -3,6 +3,7 @@
 //import { DateTime } from "luxon";
 var DateTime = luxon.DateTime;
 
+
 //App Vue
 const { createApp } = Vue
 
@@ -179,6 +180,8 @@ createApp({
             pressHandle: 0,
             currentMessage: 0,
             isHover: false,
+            upload: {},
+            hasImage: false
         }
     },
     methods: {
@@ -191,7 +194,7 @@ createApp({
             //Get and format date and time
             const today = new Date();
             const date = today.getDate() + '/' + (today.getMonth() + 1).toString().padStart(2,'0') + '/' + today.getFullYear();
-            const time = today.getHours() + ':' + today.getMinutes().toString() + ':' + today.getSeconds().toString().padStart(2,'0');
+            const time = today.getHours() + ':' + today.getMinutes().toString().padStart(2,'0') + ':' + today.getSeconds().toString().padStart(2,'0');
             const formattedDate = `${date} ${time}`;
             
             //Add message to archive of current contact
@@ -248,6 +251,16 @@ createApp({
         },
         functionPopup(){
             this.longPressed = true;
-        }
-    }
+        },
+        // handleFileChange(e){
+        //     console.log('handle', this.$refs.file.value)
+        //     this.upload.path = this.$refs.file.value
+        //     console.log('load', this.upload)
+        //     this.contacts[this.currentActive].messages.push({date: '01/01/2012 10:12:12', message : this.newMessageSend, status: 'sent', hasImage: true, imgArchive: this.upload.path});
+        // },
+        // loadFile(){
+        //     console.log('load', this.upload.file)
+        //     this.handleFileChange
+        // }
+    },
 }).mount('#app')
