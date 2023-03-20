@@ -288,12 +288,15 @@ footer {
     color: #c7c7c7;
 }
 
-footer input {
+footer textarea {
     width: 100%;
     border: none;
     border-radius: 5px;
-    height: 3.125rem;
-    padding: 0 .9375rem;
+    /* min-height: 3.125rem;
+    height: 3.125rem; */
+    max-height: 3.125rem;
+    padding: 1.0625rem .9375rem;
+    resize: none;
 }
 
 
