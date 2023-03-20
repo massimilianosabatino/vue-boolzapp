@@ -233,6 +233,24 @@ body{
     z-index: 1;
 }
 
+.message-container{
+    flex-grow: 1;
+}
+
+.toggle-popup{
+    flex-grow: 0;
+    display: none;
+}
+
+.toggle-popup i {
+    font-size: .625rem;
+    cursor: pointer;
+}
+
+.show{
+    display: block;
+}
+
 .option-message {
     position: absolute;
     background-color: #fff;

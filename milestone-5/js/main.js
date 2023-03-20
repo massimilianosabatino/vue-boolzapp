@@ -178,6 +178,7 @@ createApp({
             longPressed: false,
             pressHandle: 0,
             currentMessage: 0,
+            isHover: false,
         }
     },
     methods: {
@@ -241,10 +242,14 @@ createApp({
             this.contacts[this.currentActive].messages.splice(this.currentMessage, 1);
             //Close pop up after delete
             this.closeModal();
+            this.isHover = false;
         },
         getDateFromObj(message, contact){
             const testDate = DateTime.fromFormat(this.contacts[contact].messages[message].date, 'dd/LL/yyyy HH:mm:ss');
             return testDate.toFormat('HH:mm');
+        },
+        functionPopup(){
+            this.longPressed = true;
         }
     }
 }).mount('#app')
