@@ -177,14 +177,24 @@ createApp({
             searchField: '',
             longPressed: false,
             pressHandle: 0,
-            currentMessage: 0,
+            currentMessage: 0, 
         }
     },
     methods: {
         activeChat(element){
             //Set current active variable same as index
-            this.currentActive = element;
-            return element; 
+            if (this.searchField === '') {
+                this.currentActive = element;
+                return element;   
+            }else {
+                //Gets custom attribute from html containing name of contact
+                const id = event.currentTarget.getAttribute('chat-id');
+                //Searches the main array for the index of the given name
+                const searchUtility = this.contacts.map(e => e.name).indexOf(id);
+                //Set current active variable same as original index in the array
+                this.currentActive = searchUtility;
+                return element;
+            }
         },
         sendMessage(element){
             //Get and format date and time
@@ -210,15 +220,8 @@ createApp({
         },
         searchContact(event){
             if (this.searchField !== '') {
-                this.contacts.forEach(el => {
-                    el.visible = false
-                    if(el.name.toLowerCase().includes(this.searchField.toLowerCase())){
-                        el.visible = true;
-                    };
-                })
-                return this.contacts
+                return this.contacts.filter(el => el.name.toLowerCase().includes(this.searchField.toLowerCase()));
             } else {
-                this.contacts.forEach(el => el.visible = true);
                 return this.contacts;
             }
         },
@@ -240,9 +243,43 @@ createApp({
         deleteMessage(messageSelected){
             this.contacts[this.currentActive].messages.splice(this.currentMessage, 1);
             //Close pop up after delete
-            this.closeModal();
+            this.longPressed = false;
         },
         getDateFromObj(message, contact){
+//PROVA 1
+            // if (this.searchField !== '') {
+            //     let searchUtility = 0;
+            //     const newList = document.querySelectorAll('[chat-id]');
+            //     console.log('new list', newList)
+            //     newList.forEach((el, index) => {
+            //         const id = el.getAttribute('chat-id');
+            //         console.log('id', id);
+            //     const searchUtility = this.contacts.map(e => e.name).indexOf(id);
+            //     console.log('search', searchUtility)
+            //     contact = searchUtility;
+            //     console.log('contact',contact)
+            //     console.log(this.contacts[contact])
+            //     const testDate = DateTime.fromFormat(this.contacts[contact].messages[message].date, 'dd/LL/yyyy HH:mm:ss');
+            //     console.log(testDate.toFormat('dd/LL/yyyy HH:mm:ss'));
+            //     return testDate.toFormat('HH:mm');
+            // });
+            if (this.searchField !== '') {
+                const newList = document.querySelectorAll(`[chat-id*="${this.searchField}" i]`);
+                console.log('new list', newList);
+                let data = ''
+                newList.forEach((item) => {
+                    const result = item.getAttribute('chat-id');
+                    //console.log(result)
+                    const searchUtility = this.contacts.map(e => e.name).indexOf(result);
+                    console.log('searc',searchUtility)
+                    console.log('contact',this.contacts[searchUtility])
+                    console.log('message',this.contacts[searchUtility].messages[message].date)
+                    const testDate = DateTime.fromFormat(this.contacts[searchUtility].messages[message].date, 'dd/LL/yyyy HH:mm:ss');
+                    data = testDate.toFormat('HH:mm')
+                    // return testDate.toFormat('HH:mm');
+                })
+                return data
+            };
             const testDate = DateTime.fromFormat(this.contacts[contact].messages[message].date, 'dd/LL/yyyy HH:mm:ss');
             return testDate.toFormat('HH:mm');
         }

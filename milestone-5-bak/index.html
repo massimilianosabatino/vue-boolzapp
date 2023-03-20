@@ -57,7 +57,7 @@
             <main id="chat-list">
                 <ul>
                     <template v-for="(contact, index) in searchContact()">
-                        <li class="d-flex" @click="activeChat(index)" v-show="contact.visible">
+                        <li class="d-flex" @click="activeChat(index)" :chat-id="contact.name">
                             <div class="profile-pic">
                                 <img :src="contact.avatar" :alt="`Foto di ${contact.name}`">
                             </div>
@@ -78,11 +78,11 @@
             <!-- Top conversation bar -->
             <header class="d-flex no-wrap">
                 <div class="profile-pic">
-                    <img :src="contacts[currentActive].avatar" :alt="`Foto di ${contacts[currentActive].name}`">
+                    <img :src="contacts[currentActive].avatar" alt="Foto di Massimiliano">
                 </div>
                 <div class="name f-grow">
                     <div>{{ contacts[currentActive].name}}</div>
-                    <div class="sub">Ultimo accesso oggi alle {{ getDateFromObj(this.contacts[currentActive].messages.length - 1, currentActive) }}</div>
+                    <div class="sub">Ultimo accesso oggi alle 12:00</div>
                 </div>
                 <div class="profile-icons">
                     <i class="fa-solid fa-magnifying-glass"></i>

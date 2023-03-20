@@ -1,0 +1,307 @@
+/*
+*   RESET
+*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/*
+*   COMMONS
+*/
+body {
+    height: 100vh;
+    background: linear-gradient(to bottom, #009688 9.375rem, #D9DBD4 9.375rem);
+}
+
+header {
+    background-color: #EAEAEA;
+    height: 4.375rem;
+    align-items: center;
+    padding: .625rem 1.5625rem .625rem .625rem;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.f-items-center {
+    align-items: center;
+}
+
+.f-justify-center {
+    justify-content: center;
+}
+
+.direction-column {
+    flex-direction: column;
+}
+
+.no-wrap {
+    flex-wrap: nowrap;
+}
+
+.f-grow {
+    flex-grow: 1;
+}
+
+.name {
+    margin-left: .625rem;
+}
+
+i {
+    font-size: 1.25rem;
+}
+
+
+/*
+*   TYPO
+*/
+body{
+    font-family: 'Kantumruy Pro', sans-serif;
+    font-size: .9375rem;
+    color: #313131;
+    font-weight: 400;
+}
+
+#chatlist {
+    font-size: 1rem;
+}
+
+.sub {
+    font-weight: 300;
+    font-size: .8125rem;
+    color: #B1B1B1;
+}
+
+
+/*
+*   APP CONTAINER
+*/
+#app {
+    margin: 0 auto;
+    padding: 1.5rem;
+    height: 100%;
+}
+
+
+/*
+*   LEFT PANEL
+*/
+#left-panel {
+    width: clamp(18.75rem, 33.5625rem, 33.75rem);
+    border-right: 1px solid #D6D6D6;
+}
+
+/* Header */
+
+.profile-pic {
+    width: 3.125rem;
+
+}
+
+.profile-pic > img {
+    display: block;
+    width: 100%;
+    border-radius: 50%;
+}
+
+.profile-icons i {
+    color: #B1B1B1;
+    margin-left: 1.25rem;
+    cursor: pointer;
+}
+
+.profile-icons i:hover, .profile-icons i:active {
+    color: #c7c7c7;
+}
+
+/* Notifications */
+#notifications {
+    padding: .9375rem 1.25rem;
+    background-color: #8EDAFC;
+}
+
+#notifications .profile-pic {
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    width: 3.125rem;
+    height: 3.125rem;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 1.5625rem;
+}
+
+#notifications i {
+    color: #8EDAFC;
+}
+
+/* Search */
+#search {
+    background-color: #FAFAFA;
+    padding: .5rem;
+}
+
+#search > div {
+    background-color: #fff;
+    border: 1px solid #E9EBEB;
+    border-radius: 4px;
+    height: 2.1875rem;
+}
+
+#search i {
+    padding: 0 1.5625rem;
+    color: #D6D6D6;
+}
+
+#search input {
+    width: 100%;
+    padding: .5rem;
+    border: none;
+    border-left: 1px solid #E9EBEB;
+}
+
+/* Chat list */
+#chat-list {
+    flex-grow: 1;
+    background-color: #fff;
+    overflow-y: scroll;
+}
+
+#chat-list > ul > li {
+    padding: .9375rem 1.25rem;
+}
+
+#chat-list > ul > li:hover, #chat-list > ul > li:active {
+    background-color: #E9EBEB;
+    cursor: pointer;
+}
+
+#chat-list > ul > li:not(:last-child) {
+    border-bottom: 1px solid #D6D6D6;
+}
+
+.details {
+    margin-left: 1.25rem;
+}
+
+
+/*
+*   RIGHT PANEL
+*/
+/* Header */
+
+/* Main */
+
+#right-panel main {
+    background-image: url(../img/mine.jpg);
+    overflow-y: scroll;
+    position: relative;
+}
+
+.bubble {
+    position: relative;
+    font-size: .875rem;
+    padding: .8125rem 1rem .3125rem 1rem;
+    width: 19.5625rem;
+    border-radius: 7px;
+    margin: .625rem 6.25rem;
+}
+
+.sent {
+    background-color: #D5F9BA;
+    margin-left: auto;
+}
+
+.received {
+    background-color: #fff;
+}
+
+.time {
+    text-align: right;
+    font-size: .625rem;
+}
+
+/* Pop up */
+.switch{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.option-message {
+    position: absolute;
+    background-color: #fff;
+    z-index: 2;
+    top: 50%;
+    right: 20px;
+    border-radius: .3125rem;
+    box-shadow: 0 2px 5px rgba(49, 49, 49, 0.3);
+}
+
+.option-message > div {
+    padding: 1rem;
+}
+
+.option-message > div:hover {
+    background-color: #E9EBEB;
+    cursor: pointer;
+    border-radius: .3125rem;
+}
+
+/* Footer */
+footer {
+    height: 4.375rem;
+    background-color: #F3EEEA;
+}
+
+.emonji, .send-utils {
+    padding: 0 2.375rem;
+    color: #6B7376;
+    cursor: pointer;
+}
+
+.emonji:hover, .emonji:active, .send-utils:hover, .send-utils:active {
+    color: #c7c7c7;
+}
+
+footer input {
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    height: 3.125rem;
+    padding: 0 .9375rem;
+}
+
+
+
+/*
+*   SCROLLBAR STILE
+*/
+/* Works on Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #A3A3A3 #F1F1F1;
+  }
+  
+  /* Works on Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 1.0625rem;
+  }
+  
+  *::-webkit-scrollbar-track {
+    background: #F1F1F1;
+  }
+  
+  *::-webkit-scrollbar-thumb {
+    background-color: #A3A3A3;
+    border-radius: 20px;
+    border: 3px solid #F1F1F1;
+  }
+  
+  
+  
