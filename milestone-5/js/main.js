@@ -173,6 +173,7 @@ createApp({
                     ],
                 }
             ],
+            reply: ['ok', 'dipende', 'magari', 'porta il latte', 'vabbè'],
             currentActive: 0,
             newMessageSend: '',
             searchField: '',
@@ -194,7 +195,7 @@ createApp({
             //Get and format date and time
             const today = new Date();
             const date = today.getDate() + '/' + (today.getMonth() + 1).toString().padStart(2,'0') + '/' + today.getFullYear();
-            const time = today.getHours() + ':' + today.getMinutes().toString().padStart(2,'0') + ':' + today.getSeconds().toString().padStart(2,'0');
+            const time = today.getHours().toString().padStart(2,'0') + ':' + today.getMinutes().toString().padStart(2,'0') + ':' + today.getSeconds().toString().padStart(2,'0');
             const formattedDate = `${date} ${time}`;
             
             //Add message to archive of current contact
@@ -207,8 +208,13 @@ createApp({
         },
         fakeReply(formattedDate){
             //Convert emonji to string from HEX
-            const emojiThumbsUp = String.fromCodePoint(0x1F44D)
-            this.contacts[this.currentActive].messages.push({date: formattedDate, message : emojiThumbsUp, status: 'received'});  
+            //const emojiThumbsUp = String.fromCodePoint(0x1F44D)
+            function getRandomInt(max) {
+                return Math.floor(Math.random() * max);
+              }
+            const random = getRandomInt(this.reply.length - 1) + 1
+            const randRemply = this.reply[random]
+            this.contacts[this.currentActive].messages.push({date: formattedDate, message : randRemply, status: 'received'});  
         },
         searchContact(event){
             if (this.searchField !== '') {
@@ -263,4 +269,15 @@ createApp({
         //     this.handleFileChange
         // }
     },
+    updated(){
+        console.log(this.$data)
+        localStorage.setItem("data", JSON.stringify(this.$data));
+    },
+    beforeMount(){
+        const newJSON = localStorage.getItem("data")
+        console.log('befor', newJSON)
+        const newData = JSON.parse(newJSON)
+        this.data = newData
+        
+    }
 }).mount('#app')
