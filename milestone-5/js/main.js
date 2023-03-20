@@ -191,22 +191,20 @@ createApp({
             //Get and format date and time
             const today = new Date();
             const date = today.getDate() + '/' + (today.getMonth() + 1).toString().padStart(2,'0') + '/' + today.getFullYear();
-            const time = today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds();
+            const time = today.getHours() + ':' + today.getMinutes().toString() + ':' + today.getSeconds().toString().padStart(2,'0');
             const formattedDate = `${date} ${time}`;
             
             //Add message to archive of current contact
             this.contacts[this.currentActive].messages.push({date: formattedDate, message : this.newMessageSend, status: 'sent'});
             //Clear field
             this.newMessageSend = '';
-
             //Set a timeout for a fake reply
             const delay = 1;
-            setTimeout(this.fakeReply, delay * 1000);
+            setTimeout(this.fakeReply.bind(null, formattedDate), delay * 1000);
         },
         fakeReply(formattedDate){
             //Convert emonji to string from HEX
             const emojiThumbsUp = String.fromCodePoint(0x1F44D)
-
             this.contacts[this.currentActive].messages.push({date: formattedDate, message : emojiThumbsUp, status: 'received'});  
         },
         searchContact(event){
