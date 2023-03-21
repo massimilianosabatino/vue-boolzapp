@@ -53,7 +53,7 @@
                     <div class="d-flex f-items-center">
                         <i class="fa-solid fa-magnifying-glass"></i>
                         <input type="text" placeholder="Cerca o inizia una nuova chat" v-model="searchField"
-                            @keyup.enter="searchContact">
+                            @keyup="searchContact">
                     </div>
                 </div>
                 <!-- /Search field -->
@@ -61,7 +61,7 @@
             <!-- Chat list -->
             <main id="chat-list">
                 <ul>
-                    <template v-for="(contact, index) in searchContact()">
+                    <template v-for="(contact, index) in contacts">
                         <li class="d-flex" @click="activeChat(index)" v-show="contact.visible">
                             <div class="profile-pic">
                                 <img :src="contact.avatar" :alt="`Foto di ${contact.name}`">

@@ -217,18 +217,12 @@ createApp({
             this.contacts[this.currentActive].messages.push({date: formattedDate, message : randRemply, status: 'received'});  
         },
         searchContact(event){
-            if (this.searchField !== '') {
                 this.contacts.forEach(el => {
-                    el.visible = false
-                    if(el.name.toLowerCase().includes(this.searchField.toLowerCase())){
-                        el.visible = true;
-                    };
-                })
-                return this.contacts
-            } else {
-                this.contacts.forEach(el => el.visible = true);
-                return this.contacts;
-            }
+                    if(!el.name.toLowerCase().includes(this.searchField.toLowerCase())){
+                        el.visible = false;
+                    } else{
+                    el.visible = true}
+                });
         },
         longPress(element){
             const delay = 2;
@@ -279,5 +273,5 @@ createApp({
         const newData = JSON.parse(newJSON)
         this.data = newData
         
-    }
+    },
 }).mount('#app')
